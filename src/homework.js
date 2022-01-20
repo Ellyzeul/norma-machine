@@ -29,11 +29,97 @@ const multiplication = (a, b) => {
     const norma = new NormaMachine()
 
     populateRegister(norma, a, 0)
-    populateRegister(norma, a, 1)
-    populateRegister(norma, b, 2)
+    populateRegister(norma, b, 1)
     populateRegister(norma, b, 3)
 
-    return "implementando"
+    if(lessThan(a, 0)) {
+        if(lessThan(b, 0)) {
+            while(!norma.test(0)) {
+                if(norma.test(1)) {
+                    norma.add('output')
+                    norma.add(1)
+                    norma.sub(2)
+                }
+                else {
+                    norma.add('output')
+                    norma.add(2)
+                    norma.sub(1)
+                }
+
+                norma.add(3)
+                if(norma.test(3)) {
+                    norma.add(0)
+                    populateRegister(norma, b, 3)
+                }
+            }
+        }
+        else {
+            while(!norma.test(0)) {
+                if(norma.test(1) && norma.test(2)) break
+                if(norma.test(1)) {
+                    norma.sub('output')
+                    norma.sub(1)
+                    norma.add(2)
+                }
+                else {
+                    norma.sub('output')
+                    norma.sub(2)
+                    norma.add(1)
+                }
+
+                norma.sub(3)
+                if(norma.test(3)) {
+                    norma.add(0)
+                    populateRegister(norma, b, 3)
+                }
+            }
+        }
+    }
+    else {
+        if(lessThan(b, 0)) {
+            while(!norma.test(0)) {
+                if(norma.test(1)) {
+                    norma.sub('output')
+                    norma.add(1)
+                    norma.sub(2)
+                }
+                else {
+                    norma.sub('output')
+                    norma.add(2)
+                    norma.sub(1)
+                }
+
+                norma.add(3)
+                if(norma.test(3)) {
+                    norma.sub(0)
+                    populateRegister(norma, b, 3)
+                }
+            }
+        }
+        else {
+            while(!norma.test(0)) {
+                if(norma.test(1) && norma.test(2)) break
+                if(norma.test(1)) {
+                    norma.add('output')
+                    norma.sub(1)
+                    norma.add(2)
+                }
+                else {
+                    norma.add('output')
+                    norma.sub(2)
+                    norma.add(1)
+                }
+
+                norma.sub(3)
+                if(norma.test(3)) {
+                    norma.sub(0)
+                    populateRegister(norma, b, 3)
+                }
+            }
+        }
+    }
+
+    return norma.output()
 }
 
 const lessThan = (a, b) => {
@@ -92,4 +178,10 @@ const lessThan = (a, b) => {
         norma.add(2)
         norma.sub(3)
     }
+}
+
+const lessEqual = (a, b) => {
+    if(lessThan(a, b)) return true
+
+
 }
