@@ -1,11 +1,12 @@
 const multiplication = (a, b) => {
     const norma = new NormaMachine()
 
-    populateRegister(norma, a, 0)
-    populateRegister(norma, b, 1)
+    a > 0 ? populateRegisterPositive(norma, a, 0) : populateRegisterNegative(norma, a, 0)
+    a > 0 ? populateRegisterPositive(norma, a, 1) : populateRegisterNegative(norma, a, 1)
+    b > 0 ? populateRegisterPositive(norma, b, 2) : populateRegisterNegative(norma, b, 2)
+    b > 0 ? populateRegisterPositive(norma, b, 3) : populateRegisterNegative(norma, b, 3)
 
-    console.log(norma.registers[0])
-    console.log(norma.registers[1])
+    return "implementando"
 }
 
 const lessThan = (a, b) => {

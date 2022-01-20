@@ -9,7 +9,7 @@ body {
 #main {
     width: 80vw;
     height: 80vh;
-    background-color: rgb(250, 255, 240);
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,5 +24,6 @@ body {
 .result {
     width: 20px;
     height: 20px;
-    background-color: black;
+    background-color: white;
+    margin-left: 5px;
 }
