@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="static/index.css">
+    <title>Máquina Norma</title>
+</head>
+<body>
+    <main id="main">
+
+        <!-- Adição (preservando o conteúdo) -->
+        <p>Adição (preservando o conteúdo)</p>
+        <div id="addition1">
+            <input type="number">
+            <input type="number">
+            <div class="result"></div>
+        </div>
+
+        <!-- Adição (preservando o conteúdo) -->
+        <p>Adição (mantendo o conteúdo)</p>
+        <div id="addition2">
+            <input type="number">
+            <input type="number">
+            <div class="result"></div>
+        </div>
+
+        <!-- Multiplicação -->
+        <p>Multiplicação</p>
+        <div id="multiplication">
+            <input type="number" oninput="multiplicationDisplay()">
+            <input type="number" oninput="multiplicationDisplay()">
+            <div class="result"></div>
+        </div>
+
+        <!-- Teste A < B -->
+        <p>Teste A < B</p>
+        <div id="a_less_than_b">
+            <input type="number" oninput="lessThanDisplay()">
+            <input type="number" oninput="lessThanDisplay()">
+            <div class="result"></div>
+        </div>
+
+        <!-- Teste A <= B -->
+        <p>Teste A <= B</p>
+        <div id="a_less_equal_b">
+            <input type="number">
+            <input type="number">
+            <div class="result"></div>
+        </div>
+
+        <!-- Número primo -->
+        <p>Número primo</p>
+        <div id="prime_number">
+            <input type="number">
+            <div class="result"></div>
+        </div>
+
+        <!-- Fatorial e potência de 5 -->
+        <p>Fatorial e potência de 5</p>
+        <div id="factorial_power"></div>
+    </main>
+
+    <script type="text/javascript" src="src/norma_machine.js"></script>
+    <script type="text/javascript" src="src/homework.js"></script>
+    <script type="text/javascript" src="src/ui.js"></script>
+</body>
+</html>
