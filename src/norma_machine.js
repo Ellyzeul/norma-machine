@@ -40,16 +40,22 @@ class NormaMachine {
     }
 }
 
-const populateRegisterPositive = (norma, a, k) => {
+const populateRegister = (norma, a, k) => {
     norma.input(a)
+
+    a < 0
+        ? populateRegister.negative(norma, k)
+        : populateRegister.positive(norma, k)
+}
+
+populateRegister.positive = (norma, k) => {
     while(!norma.test('input')) {
         norma.add(k)
         norma.sub('input')
     }
 }
 
-const populateRegisterNegative = (norma, a, k) => {
-    norma.input(a)
+populateRegister.negative = (norma, k) => {
     while(!norma.test('input')) {
         norma.sub(k)
         norma.add('input')

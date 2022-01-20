@@ -12,16 +12,17 @@ const multiplication = (a, b) => {
 const lessThan = (a, b) => {
     const norma = new NormaMachine()
 
-    a > 0 ? populateRegisterPositive(norma, a, 0) : populateRegisterNegative(norma, a, 0)
-    a > 0 ? populateRegisterPositive(norma, a, 1) : populateRegisterNegative(norma, a, 1)
-    b > 0 ? populateRegisterPositive(norma, b, 2) : populateRegisterNegative(norma, b, 2)
-    b > 0 ? populateRegisterPositive(norma, b, 3) : populateRegisterNegative(norma, b, 3)
+    populateRegister(norma, a, 0)
+    populateRegister(norma, a, 1)
+    populateRegister(norma, b, 2)
+    populateRegister(norma, b, 3)
+    populateRegister(norma, b, 5)
 
     while(true) {
         if(norma.test(0)) {                                     // a(input) <= 0 && a(actual) ==0
             while(true) {
                 if(norma.test(2)) return false                          // b(input) < 0 && b(actual) == 0
-                if(norma.test(3)) return norma.test(4) ? false : true   // b(input) > 0 && b(actual) == 0
+                if(norma.test(3)) return norma.test(4) && norma.test(5) ? false : true   // b(input) > 0 && b(actual) == 0
                 if(norma.test(4)) norma.add(4)
 
                 norma.add(2)
