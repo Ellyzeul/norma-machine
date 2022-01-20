@@ -40,6 +40,13 @@ class NormaMachine {
 
         return this.registers[k] == 0
     }
+
+    get(k) {
+        k += this.reservedRegisters
+        if(typeof this.registers[k] == "undefined") this.registers[k] = 0
+
+        return this.registers[k]
+    }
 }
 
 const populateRegister = (norma, a, k) => {

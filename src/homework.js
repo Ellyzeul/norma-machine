@@ -186,3 +186,25 @@ const lessEqual = (a, b) => {
 
     return false
 }
+
+const factorial = (a) => {
+    const norma = new NormaMachine()
+
+    populateRegister(norma, a, 0)
+    norma.add('output')
+    norma.add(1)
+    norma.sub(0)
+
+    while(!norma.test(0)) {
+        populateRegister(norma, multiplication(norma.output(), norma.get(1)), 'output')
+        console.log(`i = ${norma.get(1)} | output = ${norma.output()}`)
+        norma.add(1)
+        norma.sub(0)
+    }
+
+    return norma.output()
+}
+
+const square = (a) => {
+    return multiplication(a, a)
+}

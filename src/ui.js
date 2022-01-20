@@ -49,3 +49,10 @@ const lessEqualDisplay = () => {
 
     result.style.backgroundColor = lessEqual(a, b) ? 'lightgreen' : 'salmon'
 }
+
+const fiveFactorialPowerDisplay = () => {
+    const result = document.querySelector("#factorial_power")
+
+    result.innerHTML = `Fatorial = ${factorial(5)} || Potência = ${square(5)}`
+}
+fiveFactorialPowerDisplay()
