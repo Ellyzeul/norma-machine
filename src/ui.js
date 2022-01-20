@@ -36,3 +36,16 @@ const lessThanDisplay = () => {
 
     result.style.backgroundColor = lessThan(a, b) ? 'lightgreen' : 'salmon'
 }
+
+const lessEqualDisplay = () => {
+    const a = document.querySelectorAll("#a_less_equal_b > input")[0].value
+    const b = document.querySelectorAll("#a_less_equal_b > input")[1].value
+    const result = document.querySelector("#a_less_equal_b > .result")
+
+    if(a === "" || b === "") {
+        result.style.backgroundColor = 'white'
+        return
+    }
+
+    result.style.backgroundColor = lessEqual(a, b) ? 'lightgreen' : 'salmon'
+}

@@ -182,6 +182,7 @@ const lessThan = (a, b) => {
 
 const lessEqual = (a, b) => {
     if(lessThan(a, b)) return true
+    if(additionWithoutPreserving(a, multiplication(b, -1)) == 0) return true
 
-
+    return false
 }
