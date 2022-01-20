@@ -11,16 +11,16 @@
 <body>
     <main id="main">
 
-        <!-- Adição (preservando o conteúdo) -->
-        <p>Adição (preservando o conteúdo)</p>
+        <!-- Adição (sem preservar o conteúdo) -->
+        <p>Adição (sem preservar o conteúdo)</p>
         <div id="addition1">
-            <input type="number">
-            <input type="number">
+            <input type="number" oninput="additionWithoutPreservingDisplay()">
+            <input type="number" oninput="additionWithoutPreservingDisplay()">
             <div class="result"></div>
         </div>
 
         <!-- Adição (preservando o conteúdo) -->
-        <p>Adição (mantendo o conteúdo)</p>
+        <p>Adição (preservando o conteúdo)</p>
         <div id="addition2">
             <input type="number">
             <input type="number">

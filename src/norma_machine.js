@@ -1,7 +1,7 @@
 class NormaMachine {
     constructor() {
-        this.registers = []
-        this.reservedRegisters = 4
+        this.registers = Array(2).fill(0)
+        this.reservedRegisters = 2
     }
 
     input(X) {
@@ -14,6 +14,7 @@ class NormaMachine {
 
     add(k) {
         if(k == 'input') return this.registers[0]++
+        if(k == 'output') return this.registers[1]++
 
         k += this.reservedRegisters
         if(typeof this.registers[k] == "undefined") this.registers[k] = 0
@@ -23,6 +24,7 @@ class NormaMachine {
 
     sub(k) {
         if(k == 'input') return this.registers[0]--
+        if(k == 'output') return this.registers[1]--
 
         k += this.reservedRegisters
         if(typeof this.registers[k] == "undefined") this.registers[k] = 0

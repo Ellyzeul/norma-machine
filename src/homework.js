@@ -1,10 +1,37 @@
+const additionWithoutPreserving = (a, b) => {
+    const norma = new NormaMachine()
+
+    populateRegister(norma, a, 0)
+    populateRegister(norma, b, 1)
+
+    if(lessThan(a, 0)) while(!norma.test(0)) {
+        norma.sub('output')
+        norma.add(0)
+    }
+    else while(!norma.test(0)) {
+        norma.add('output')
+        norma.sub(0)
+    }
+    
+    if(lessThan(b, 0)) while(!norma.test(1)) {
+        norma.sub('output')
+        norma.add(1)
+    }
+    else while(!norma.test(1)) {
+        norma.add('output')
+        norma.sub(1)
+    }
+
+    return norma.output()
+}
+
 const multiplication = (a, b) => {
     const norma = new NormaMachine()
 
-    a > 0 ? populateRegisterPositive(norma, a, 0) : populateRegisterNegative(norma, a, 0)
-    a > 0 ? populateRegisterPositive(norma, a, 1) : populateRegisterNegative(norma, a, 1)
-    b > 0 ? populateRegisterPositive(norma, b, 2) : populateRegisterNegative(norma, b, 2)
-    b > 0 ? populateRegisterPositive(norma, b, 3) : populateRegisterNegative(norma, b, 3)
+    populateRegister(norma, a, 0)
+    populateRegister(norma, a, 1)
+    populateRegister(norma, b, 2)
+    populateRegister(norma, b, 3)
 
     return "implementando"
 }
