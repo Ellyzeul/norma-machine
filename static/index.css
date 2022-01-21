@@ -6,6 +6,14 @@ body {
     align-items: center;
 }
 
+h1 {
+    color: white;
+}
+
+input {
+    width: 100px;
+}
+
 #main {
     width: 80vw;
     height: 80vh;

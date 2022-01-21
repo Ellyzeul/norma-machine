@@ -83,3 +83,5 @@ const fiveFactorialPowerDisplay = () => {
     result.innerHTML = `Fatorial = ${factorial(5)} || Potência = ${square(5)}`
 }
 fiveFactorialPowerDisplay()
+
+document.querySelectorAll('input').forEach(input => input.value = '')
