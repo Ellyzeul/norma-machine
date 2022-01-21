@@ -25,6 +25,8 @@ const additionWithoutPreserving = (a, b) => {
     return norma.output()
 }
 
+const subtraction = (a, b) => additionWithoutPreserving(a, multiplication(b, -1))
+
 const multiplication = (a, b) => {
     const norma = new NormaMachine()
 
@@ -193,11 +195,9 @@ const factorial = (a) => {
     populateRegister(norma, a, 0)
     norma.add('output')
     norma.add(1)
-    norma.sub(0)
 
     while(!norma.test(0)) {
         populateRegister(norma, multiplication(norma.output(), norma.get(1)), 'output')
-        console.log(`i = ${norma.get(1)} | output = ${norma.output()}`)
         norma.add(1)
         norma.sub(0)
     }
@@ -207,4 +207,46 @@ const factorial = (a) => {
 
 const square = (a) => {
     return multiplication(a, a)
+}
+
+const remainder = (a, b) => {
+    const norma = new NormaMachine()
+
+    populateRegister(norma, a, 0)
+    populateRegister(norma, b, 1)
+
+    while(!lessThan(norma.get(0), 0)) {
+        populateRegister(norma, norma.get(0), 'output')
+        populateRegister(norma, b, 2)
+        while(!norma.test(2)) {
+            norma.sub(0)
+            norma.sub(2)
+        }
+    }
+
+    return norma.output()
+}
+
+const isPrime = (a) => {
+    const norma = new NormaMachine()
+
+    populateRegister(norma, a, 0)
+    populateRegister(norma, a, 1)
+    populateRegister(norma, 2, 2)
+
+    norma.sub(0)
+    if(norma.test(0)) return false
+
+    norma.sub(0)
+    if(norma.test(0)) return true
+
+    norma.sub(0)
+
+    while(!norma.test(0)) {
+        if(remainder(norma.get(1), norma.get(2)) == 0) return false
+        norma.add(2)
+        norma.sub(0)
+    }
+
+    return true
 }

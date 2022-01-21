@@ -50,6 +50,18 @@ const lessEqualDisplay = () => {
     result.style.backgroundColor = lessEqual(a, b) ? 'lightgreen' : 'salmon'
 }
 
+const isPrimeDisplay = () => {
+    const a = document.querySelectorAll("#prime_number > input")[0].value
+    const result = document.querySelector("#prime_number > .result")
+
+    if(a === "") {
+        result.style.backgroundColor = 'white'
+        return
+    }
+
+    result.style.backgroundColor = isPrime(a) ? 'lightgreen' : 'salmon'
+}
+
 const fiveFactorialPowerDisplay = () => {
     const result = document.querySelector("#factorial_power")
 

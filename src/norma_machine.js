@@ -34,6 +34,7 @@ class NormaMachine {
 
     test(k) {
         if(k == 'input') return this.registers[0] == 0
+        if(k == 'output') return this.registers[1] == 0
 
         k += this.reservedRegisters
         if(typeof this.registers[k] == "undefined") this.registers[k] = 0
@@ -58,6 +59,7 @@ const populateRegister = (norma, a, k) => {
 }
 
 populateRegister.positive = (norma, k) => {
+    while(!norma.test(k)) norma.sub(k)
     while(!norma.test('input')) {
         norma.add(k)
         norma.sub('input')
@@ -65,6 +67,7 @@ populateRegister.positive = (norma, k) => {
 }
 
 populateRegister.negative = (norma, k) => {
+    while(!norma.test(k)) norma.add(k)
     while(!norma.test('input')) {
         norma.sub(k)
         norma.add('input')
