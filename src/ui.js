@@ -11,6 +11,21 @@ const additionWithoutPreservingDisplay = () => {
     result.innerHTML = additionWithoutPreserving(a, b)
 }
 
+const additionPreservingDisplay = () => {
+    const a = document.querySelectorAll("#addition2 > input")[0].value
+    const b = document.querySelectorAll("#addition2 > input")[1].value
+    const result = document.querySelector("#addition2 > .result")
+
+    if(a === "" || b === "") {
+        result.innerHTML = ""
+        return
+    }
+
+    const response = additionPreserving(a, b)
+
+    result.innerHTML = `a=${response.a}|b=${response.b}|soma=${response.sum}`
+}
+
 const multiplicationDisplay = () => {
     const a = document.querySelectorAll("#multiplication > input")[0].value
     const b = document.querySelectorAll("#multiplication > input")[1].value

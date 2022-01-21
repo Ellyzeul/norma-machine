@@ -25,6 +25,65 @@ const additionWithoutPreserving = (a, b) => {
     return norma.output()
 }
 
+const additionPreserving = (a, b) => {
+    const norma = new NormaMachine()
+
+    populateRegister(norma, a, 0)
+    populateRegister(norma, b, 1)
+
+    if(lessThan(a, 0)) {
+        while(!norma.test(0)) {
+            norma.sub('output')
+            norma.add(0)
+            norma.sub(2)
+        }
+        while(!norma.test(2)) {
+            norma.sub(0)
+            norma.add(2)
+        }
+    }
+    else {
+        while(!norma.test(0)) {
+            norma.add('output')
+            norma.sub(0)
+            norma.add(2)
+        }
+        while(!norma.test(2)) {
+            norma.add(0)
+            norma.sub(2)
+        }
+    }
+    
+    if(lessThan(b, 0)) {
+        while(!norma.test(1)) {
+            norma.sub('output')
+            norma.add(1)
+            norma.sub(2)
+        }
+        while(!norma.test(2)) {
+            norma.sub(1)
+            norma.add(2)
+        }
+    }
+    else {
+        while(!norma.test(1)) {
+            norma.add('output')
+            norma.sub(1)
+            norma.add(2)
+        }
+        while(!norma.test(2)) {
+            norma.add(1)
+            norma.sub(2)
+        }
+    }
+
+    return {
+        a: norma.get(0),
+        b: norma.get(1),
+        sum: norma.output()
+    }
+}
+
 const subtraction = (a, b) => additionWithoutPreserving(a, multiplication(b, -1))
 
 const multiplication = (a, b) => {
